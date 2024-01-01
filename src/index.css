@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------- MODE ----------------------------- */
+.mode{
+  width: 144px;
+  height: 50px;
+  border-radius: 9999px;
+  font-weight: 700;
+  color: #b5c9e2;
+  z-index: 1;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.mode-indicator {
+  position: absolute;
+  height: 50px;
+  width: 144px;
+  transition: 0.4s;
+  z-index: 1;
+  border-radius: 9999px;
+  font-weight: 700;
+}
