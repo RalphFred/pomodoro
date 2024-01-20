@@ -1,13 +1,6 @@
 import { useState } from "react";
 
-export default function Mode() {
-
-  const modes = ["pomodoro", "short break", "long break"];
-  const [activeMode, setActiveMode] = useState(0);
-
-  function handleModeChange(index) {
-    setActiveMode(index);
-  }
+export default function Mode({activeMode, modes, onModeChange}) {
 
   return (
     <div className="bg-[#1c2230] p-2 rounded-full my-8">
@@ -15,7 +8,7 @@ export default function Mode() {
       {modes.map((mode, index) => (
         <button
          key={index}
-         onClick={() => handleModeChange(index)}
+         onClick={() => onModeChange(index)}
          className={`mode ${index === activeMode ? 'active' : '' }`}
         >
           {mode}
