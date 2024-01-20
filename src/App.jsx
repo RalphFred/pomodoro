@@ -8,10 +8,19 @@ export default function App() {
   
   const [activeMode, setActiveMode] = useState(0);
   const modes = ["pomodoro", "short break", "long break"];
-  const modeDuration = [25, 5, 15];
+
+  const [modeDurations, setModeDurations] = useState({
+    "pomodoro": 25,
+    "short break": 5,
+    "long break": 15,
+  });
 
   const handleModeChange = (index) => {
     setActiveMode(index);
+  }
+
+  const handleApplySettings = (newDurations) => {
+    setModeDurations(newDurations)
   }
 
 
@@ -25,9 +34,9 @@ export default function App() {
        onModeChange={handleModeChange}
       />
       <Clock 
-       duration={modeDuration[activeMode]}
+       duration={modeDurations[modes[activeMode]]}
       />
-      <Settings />
+      <Settings onApplySettings={handleApplySettings}/>
     </div>
   )
 }
