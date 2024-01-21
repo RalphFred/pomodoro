@@ -8,6 +8,7 @@ export default function Settings({ onApplySettings }) {
   const [pomodoroTime, setPomodoroTime] = useState(25);
   const [shortBreakTime, setShortBreakTime] = useState(5);
   const [longBreakTime, setLongBreakTime] = useState(15);
+  const [color, setColor] = useState("#EEEBD0");
 
   const onClose = () => {
     setShowSetting(!showSetting);
@@ -18,11 +19,14 @@ export default function Settings({ onApplySettings }) {
       "pomodoro": pomodoroTime,
       "short break": shortBreakTime,
       "long break": longBreakTime,
-    })
-
-    console.log(shortBreakTime, longBreakTime)
+      "color": color
+    }) 
 
     onClose();
+  }
+
+  const handleColorChange = (e) => {
+    setColor(e.target.value);
   }
 
   return (
@@ -75,7 +79,7 @@ export default function Settings({ onApplySettings }) {
 
               <div className="py-4 flex justify-between items-center">
                 <h3 className="font-bold tracking-[.5rem] text-sm">COLOR</h3>
-                <input type="color" className="w-[60px] h-[30px]" />
+                <input type="color" className="w-[60px] h-[30px]" value={color} onChange={handleColorChange}/>
               </div>
             </div>
             <button className="font-semibold px-10 py-3 bg-coral text-white rounded-full absolute -bottom-5 left-1/2 transform -translate-x-1/2 " onClick={handleApplySettings}>

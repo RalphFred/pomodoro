@@ -27,6 +27,7 @@
 
 .mode-indicator {
   position: absolute;
+  color: #b5c9e2;
   height: 50px;
   width: 144px;
   transition: 0.4s;

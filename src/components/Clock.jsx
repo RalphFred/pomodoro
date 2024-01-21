@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-export default function Clock({ duration }) {
+export default function Clock({ duration, color }) {
   const [time, setTime] = useState(duration * 60);
   const [isTimerPaused, setIsTimerPaused] = useState(true);
 
   useEffect(() => {
     setTime(duration * 60);
-    setIsTimerPaused(true)
+    setIsTimerPaused(true);
   }, [duration]);
 
   useEffect(() => {
@@ -34,14 +34,18 @@ export default function Clock({ duration }) {
   };
 
   return (
-    <div className="w-[400px] h-[400px] rounded-full my-8 border-8 border-beige flex flex-col justify-center items-center">
+    <div
+      className={`w-[400px] h-[400px] rounded-full my-8 border-8 flex flex-col justify-center items-center`}
+      style={{borderColor: color}}
+    >
       <h1 className="font-bold text-8xl text-slate-200 mb-6">
         {formatTime(time)}
       </h1>
 
       <button
-        className="font-semibold text-slate-200 text-xl tracking-[.75rem]"
+        className={`font-bold text-xl tracking-[.75rem]`}
         onClick={handleStartClick}
+        style={{color: color}}
       >
         {isTimerPaused ? "START" : "PAUSE"}
       </button>

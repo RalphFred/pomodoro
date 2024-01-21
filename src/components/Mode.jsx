@@ -1,9 +1,9 @@
-import { useState } from "react";
+export default function Mode({activeMode, modes, onModeChange, color}) {
 
-export default function Mode({activeMode, modes, onModeChange}) {
+  console.log(color);
 
   return (
-    <div className="bg-[#1c2230] p-2 rounded-full my-8">
+    <div className={`bg-[#1c2230] p-2 rounded-full my-8`}>
       <div className="relative">
       {modes.map((mode, index) => (
         <button
@@ -18,7 +18,7 @@ export default function Mode({activeMode, modes, onModeChange}) {
        className="mode-indicator"
        style={{
         left: activeMode >= 0 ? `calc(${activeMode * 100 / modes.length}%)` : 0,
-        background: '#EEEBD0'
+        background: color
       }}
       >
         <span className="w-full h-full flex justify-center items-center">

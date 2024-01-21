@@ -8,6 +8,7 @@ export default function App() {
   
   const [activeMode, setActiveMode] = useState(0);
   const modes = ["pomodoro", "short break", "long break"];
+  const [color, setColor] = useState("#EEEBD0")
 
   const [modeDurations, setModeDurations] = useState({
     "pomodoro": 25,
@@ -20,7 +21,10 @@ export default function App() {
   }
 
   const handleApplySettings = (newDurations) => {
-    setModeDurations(newDurations)
+    setModeDurations(newDurations);
+
+    setColor(newDurations.color);
+    console.log(color);
   }
 
 
@@ -32,9 +36,11 @@ export default function App() {
        activeMode={activeMode}
        modes={modes}
        onModeChange={handleModeChange}
+       color={color}
       />
       <Clock 
        duration={modeDurations[modes[activeMode]]}
+       color={color}
       />
       <Settings onApplySettings={handleApplySettings}/>
     </div>
